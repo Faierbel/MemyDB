@@ -1,6 +1,6 @@
 package io.github.memydb.ui.base
 
-import dagger.android.DaggerActivity
+import dagger.android.support.DaggerAppCompatActivity
 
-abstract class BaseActivity : DaggerActivity() {
+abstract class BaseActivity : DaggerAppCompatActivity() {
 }

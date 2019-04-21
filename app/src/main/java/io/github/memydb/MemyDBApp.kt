@@ -7,6 +7,6 @@ import io.github.memydb.di.DaggerAppComponent
 class MemyDBApp : DaggerApplication() {
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerAppComponent.builder().create(this)
+        return DaggerAppComponent.factory().create(this)
     }
 }
