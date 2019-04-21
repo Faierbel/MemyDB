@@ -1,4 +1,9 @@
 package io.github.memydb.data.entities
 
-class Page {
-}
+data class Page(
+    val title: String,
+
+    val memes: List<Meme>,
+
+    val nextPage: String
+)

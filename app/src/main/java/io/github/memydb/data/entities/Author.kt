@@ -1,9 +1,7 @@
 package io.github.memydb.data.entities
 
-data class Tag(
+data class Author(
     val name: String,
 
-    val sourceUrl: String,
-
-    val slug: String
+    val profileUrl: String
 )
