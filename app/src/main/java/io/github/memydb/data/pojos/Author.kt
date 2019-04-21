@@ -1,4 +1,4 @@
-package io.github.memydb.data.entities
+package io.github.memydb.data.pojos
 
 data class Author(
     val name: String,

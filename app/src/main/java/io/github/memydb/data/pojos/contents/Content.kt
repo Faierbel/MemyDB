@@ -1,8 +1,8 @@
-package io.github.memydb.data.entities.contents
+package io.github.memydb.data.pojos.contents
 
 abstract class Content {
 
-    abstract fun getContentType(): Type
+    lateinit var contentType: Type
 
     enum class Type {
         IMAGE, VIDEO, GALLERY, CAPTIONED_GALLERY, GIF, PREVIEW, TEXT

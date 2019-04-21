@@ -1,4 +1,4 @@
-package io.github.memydb.data.entities
+package io.github.memydb.data.pojos
 
 data class Comment(
     val content: String,

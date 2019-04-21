@@ -1,11 +1,11 @@
-package io.github.memydb.data.entities
+package io.github.memydb.data.pojos
 
-import io.github.memydb.data.entities.contents.Content
+import io.github.memydb.data.pojos.contents.Content
 
 data class Meme(
     val title: String,
 
-    val content: List<Content>,
+    val content: Content,
 
     val url: String,
 
