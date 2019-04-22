@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">MemyDB</string>
+
+
+    <!--Activity/Fragment titles-->
+    <string name="demotywatory_title">Demotywatory</string>
+    <string name="kwejk_title">Kwejk</string>
+    <string name="ninegagnsfw_title">9gag NSFW</string>
+    <string name="ninegag_title">9gag</string>
+    <string name="anonimowe_title">Anonimowe</string>
+    <string name="jbzd_title">Jbzd</string>
+    <string name="mistrzowie_title">Mistrzowie</string>
+    <string name="thecodinglove_title">The coding love</string>
 </resources>
