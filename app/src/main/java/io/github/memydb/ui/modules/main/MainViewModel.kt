@@ -7,6 +7,6 @@ import javax.inject.Inject
 
 class MainViewModel @Inject constructor(private val demotywatoryRepository: DemotywatoryRepository) : ViewModel() {
 
-    val page = demotywatoryRepository.getDemotywatoryPage()
+    val demotywatoryPage = demotywatoryRepository.getDemotywatoryPage()
 
 }
