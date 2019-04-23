@@ -8,4 +8,6 @@ import javax.inject.Singleton
 class DemotywatoryRepository @Inject constructor(private val demotywatoryService: DemotywatoryService) {
 
     fun getDemotywatoryPage() = demotywatoryService.getPage()
+
+    fun getDemotywatoryPage(pageId: Int) = demotywatoryService.getPage(pageId)
 }

@@ -13,15 +13,19 @@ class LiveDataCallAdapter<R>(private val type: Type) : CallAdapter<R, RefreshLiv
 
     override fun adapt(call: Call<R>): RefreshLiveData<ApiResponse<R>> {
         return RefreshLiveData { callback ->
-            call.clone().enqueue(object : Callback<R> {
-                override fun onResponse(call: Call<R>, response: Response<R>) {
-                    callback(ApiResponse.create(response))
-                }
+            try {
+                call.clone().enqueue(object : Callback<R> {
+                    override fun onResponse(call: Call<R>, response: Response<R>) {
+                        callback(ApiResponse.create(response))
+                    }
 
-                override fun onFailure(call: Call<R>, t: Throwable) {
-                    callback(ApiResponse.create(t))
-                }
-            })
+                    override fun onFailure(call: Call<R>, t: Throwable) {
+                        callback(ApiResponse.create(t))
+                    }
+                })
+            } catch (t: Throwable) {
+                callback(ApiResponse.create(t))
+            }
         }
     }
 }
