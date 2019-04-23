@@ -1,32 +1,27 @@
 package io.github.memydb.data.api
 
-import androidx.lifecycle.LiveData
+import io.github.memydb.utils.RefreshLiveData
 import retrofit2.Call
 import retrofit2.CallAdapter
 import retrofit2.Callback
 import retrofit2.Response
 import java.lang.reflect.Type
 
-class LiveDataCallAdapter<R>(private val type: Type) : CallAdapter<R, LiveData<ApiResponse<R>>> {
+class LiveDataCallAdapter<R>(private val type: Type) : CallAdapter<R, RefreshLiveData<ApiResponse<R>>> {
 
     override fun responseType() = type
 
-    override fun adapt(call: Call<R>): LiveData<ApiResponse<R>> {
-        return object : LiveData<ApiResponse<R>>() {
+    override fun adapt(call: Call<R>): RefreshLiveData<ApiResponse<R>> {
+        return RefreshLiveData { callback ->
+            call.clone().enqueue(object : Callback<R> {
+                override fun onResponse(call: Call<R>, response: Response<R>) {
+                    callback(ApiResponse.create(response))
+                }
 
-            override fun onActive() {
-                super.onActive()
-
-                call.enqueue(object : Callback<R> {
-                    override fun onResponse(call: Call<R>, response: Response<R>) {
-                        postValue(ApiResponse.create(response))
-                    }
-
-                    override fun onFailure(call: Call<R>, t: Throwable) {
-                        postValue(ApiResponse.create(t))
-                    }
-                })
-            }
+                override fun onFailure(call: Call<R>, t: Throwable) {
+                    callback(ApiResponse.create(t))
+                }
+            })
         }
     }
 }

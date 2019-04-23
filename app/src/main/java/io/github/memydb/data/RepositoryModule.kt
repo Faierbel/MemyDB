@@ -7,6 +7,9 @@ import io.github.memydb.data.api.ContentTypeAdapter
 import io.github.memydb.data.api.LiveDataCallAdapterFactory
 import io.github.memydb.data.api.services.DemotywatoryService
 import io.github.memydb.data.pojos.contents.Content
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import okhttp3.logging.HttpLoggingInterceptor.Level.BASIC
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -21,8 +24,13 @@ internal class RepositoryModule {
             .registerTypeAdapter(Content::class.java, ContentTypeAdapter())
             .create()
 
+        val httpClient = OkHttpClient.Builder()
+            .addInterceptor(HttpLoggingInterceptor().setLevel(BASIC))
+            .build()
+
         return Retrofit.Builder()
             .baseUrl("https://memesapi.herokuapp.com/")
+            .client(httpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(LiveDataCallAdapterFactory())
             .build()
