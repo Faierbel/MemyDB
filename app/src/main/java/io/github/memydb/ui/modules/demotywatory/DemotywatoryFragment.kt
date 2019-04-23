@@ -8,12 +8,13 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mikepenz.fastadapter.FastAdapter
-import com.mikepenz.fastadapter.adapters.ItemAdapter
+import com.mikepenz.fastadapter.adapters.ModelAdapter
+import com.mikepenz.fastadapter.items.AbstractItem
 import com.mikepenz.fastadapter.scroll.EndlessRecyclerOnScrollListener
 import io.github.memydb.R
 import io.github.memydb.data.api.ApiResponse
-import io.github.memydb.data.pojos.contents.Content
-import io.github.memydb.data.pojos.contents.ImageContent
+import io.github.memydb.data.pojos.Meme
+import io.github.memydb.data.pojos.contents.Content.Type.*
 import io.github.memydb.ui.base.BaseActivity
 import io.github.memydb.ui.base.BaseFragment
 import io.github.memydb.ui.base.ViewModelFactory
@@ -27,9 +28,9 @@ class DemotywatoryFragment : BaseFragment() {
 
     private lateinit var demotywatoryViewModel: DemotywatoryViewModel
 
-    private lateinit var demotAdapter: FastAdapter<DemotywatoryItem>
+    private lateinit var demotAdapter: FastAdapter<AbstractItem<*>>
 
-    private lateinit var itemAdapter: ItemAdapter<DemotywatoryItem>
+    private lateinit var itemAdapter: ModelAdapter<Meme, AbstractItem<*>>
 
     companion object {
         fun newInstance() = DemotywatoryFragment()
@@ -50,7 +51,19 @@ class DemotywatoryFragment : BaseFragment() {
     }
 
     private fun initView() {
-        itemAdapter = ItemAdapter.items()
+        itemAdapter = ModelAdapter {
+            return@ModelAdapter when (it.content.contentType) {
+                IMAGE -> ImageMemeItem(it)
+                CAPTIONED_GALLERY -> CaptionedGalleryMemeItem(it)
+                GALLERY -> GalleryMemeItem(it)
+                GIF -> GifMemeItem(it)
+                PREVIEW -> PreviewMemeItem(it)
+                TEXT -> TextMemeItem(it)
+                VIDEO -> VideoMemeItem(it)
+            }
+        }
+
+
         demotAdapter = FastAdapter.with(itemAdapter)
         demotRecyler.apply {
             layoutManager = LinearLayoutManager(context)
@@ -68,10 +81,8 @@ class DemotywatoryFragment : BaseFragment() {
     private fun initObserves() {
         demotywatoryViewModel.demotywatoryPage.observe(this, Observer {
             if (it is ApiResponse.SuccessApiResponse) {
-                val imageItems = it.value.memes.filter { meme -> meme.content.contentType == Content.Type.IMAGE }
-                    .map { meme -> DemotywatoryItem(meme.content as ImageContent) }
+                itemAdapter.add(it.value.memes)
 
-                itemAdapter.add(itemAdapter.itemList.size(), imageItems)
             } else if (it is ApiResponse.ErrorApiResponse) {
                 showMessage(it.error.localizedMessage)
             }
