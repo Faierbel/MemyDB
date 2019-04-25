@@ -1,4 +1,4 @@
-package io.github.memydb.ui.modules.demotywatory
+package io.github.memydb.ui.base.items
 
 import android.view.View
 import com.mikepenz.fastadapter.FastAdapter
@@ -15,7 +15,8 @@ class GalleryMemeItem(meme: Meme) : ModelAbstractItem<Meme, GalleryMemeItem.View
     override val type: Int
         get() = 2
 
-    override fun getViewHolder(v: View) = ViewHolder(v)
+    override fun getViewHolder(v: View) =
+        ViewHolder(v)
 
     class ViewHolder(itemView: View) : FastAdapter.ViewHolder<GalleryMemeItem>(itemView), LayoutContainer {
 

@@ -1,4 +1,4 @@
-package io.github.memydb.ui.modules.demotywatory
+package io.github.memydb.ui.base.items
 
 import android.view.View
 import com.bumptech.glide.Glide
