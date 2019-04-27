@@ -1,6 +1,7 @@
 package io.github.memydb.data.pojos
 
 import io.github.memydb.data.pojos.contents.Content
+import java.io.Serializable
 
 data class Meme(
     val title: String,
@@ -22,4 +23,4 @@ data class Meme(
     val commentAmount: Int,
 
     val points: Int
-)
+) : Serializable

@@ -15,6 +15,7 @@ import io.github.memydb.data.api.ApiResponse
 import io.github.memydb.ui.base.BaseActivity
 import io.github.memydb.ui.base.BaseFragment
 import io.github.memydb.ui.base.ViewModelFactory
+import io.github.memydb.ui.base.items.ImageMemeItem
 import kotlinx.android.synthetic.main.fragment_demotywatory.*
 import javax.inject.Inject
 
@@ -44,6 +45,15 @@ class DemotywatoryFragment : BaseFragment() {
 
     private fun initView() {
         demotAdapter = FastAdapter.with(memesAdapter)
+        demotAdapter.onClickListener = { _, _, item, _ ->
+            if (item is ImageMemeItem) {
+                val transaction = fragmentManager?.beginTransaction()
+
+                transaction?.replace(R.id.mainFragmentContainer, ContentFragment.newInstance(item.model))
+                transaction?.commit()
+            }
+            true
+        }
         demotRecyler.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = demotAdapter
