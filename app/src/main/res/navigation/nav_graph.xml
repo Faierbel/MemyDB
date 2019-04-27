@@ -1,5 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/nav_graph">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/anonimoweFragment">
+    <fragment
+        android:id="@+id/anonimoweFragment"
+        android:name="io.github.memydb.ui.modules.anonimowe.AnonimoweFragment"
+        android:label="AnonimoweFragment" />
+    <fragment
+        android:id="@+id/demotywatoryFragment"
+        android:name="io.github.memydb.ui.modules.demotywatory.DemotywatoryFragment"
+        android:label="DemotywatoryFragment">
+        <action
+            android:id="@+id/action_demotywatoryFragment_to_contentFragment"
+            app:destination="@id/contentFragment"
+            app:launchSingleTop="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/jbzdFragment"
+        android:name="io.github.memydb.ui.modules.jbzd.JbzdFragment"
+        android:label="JbzdFragment" />
+    <fragment
+        android:id="@+id/kwejkFragment"
+        android:name="io.github.memydb.ui.modules.kwejk.KwejkFragment"
+        android:label="KwejkFragment" />
+    <fragment
+        android:id="@+id/mistrzowieFragment"
+        android:name="io.github.memydb.ui.modules.mistrzowie.MistrzowieFragment"
+        android:label="MistrzowieFragment" />
+    <fragment
+        android:id="@+id/ninegagFragment"
+        android:name="io.github.memydb.ui.modules.ninegag.NinegagFragment"
+        android:label="NinegagFragment" />
+    <fragment
+        android:id="@+id/ninegagnsfwFragment"
+        android:name="io.github.memydb.ui.modules.ninegagnsfw.NinegagnsfwFragment"
+        android:label="NinegagnsfwFragment" />
+    <fragment
+        android:id="@+id/thecodingloveFragment"
+        android:name="io.github.memydb.ui.modules.thecodinglove.ThecodingloveFragment"
+        android:label="ThecodingloveFragment" />
+    <fragment
+        android:id="@+id/contentFragment"
+        android:name="io.github.memydb.ui.modules.demotywatory.ContentFragment"
+        android:label="ContentFragment">
+        <argument
+            android:name="meme"
+            app:argType="java.io.Serializable" />
+    </fragment>
 </navigation>

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.items.AbstractItem
@@ -47,10 +48,8 @@ class DemotywatoryFragment : BaseFragment() {
         demotAdapter = FastAdapter.with(memesAdapter)
         demotAdapter.onClickListener = { _, _, item, _ ->
             if (item is ImageMemeItem) {
-                val transaction = fragmentManager?.beginTransaction()
-
-                transaction?.replace(R.id.mainFragmentContainer, ContentFragment.newInstance(item.model))
-                transaction?.commit()
+                val action = DemotywatoryFragmentDirections.actionDemotywatoryFragmentToContentFragment(item.model)
+                findNavController().navigate(action)
             }
             true
         }
