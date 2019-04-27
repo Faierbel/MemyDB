@@ -2,6 +2,7 @@ package io.github.memydb.ui.base.items
 
 import android.view.View
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.DrawableImageViewTarget
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.items.ModelAbstractItem
 import io.github.memydb.R
@@ -26,12 +27,15 @@ class ImageMemeItem(meme: Meme) : ModelAbstractItem<Meme, ImageMemeItem.ViewHold
             get() = itemView
 
         override fun bindView(item: ImageMemeItem, payloads: MutableList<Any>) {
+            imageMemeCommentText.text = item.model.commentAmount.toString()
+            imageMemePointText.text = item.model.points.toString()
             Glide.with(itemView)
                 .load((item.model.content as ImageContent).url)
-                .into(imageMemeContent)
+                .into(DrawableImageViewTarget(imageMemeContent).waitForLayout())
         }
 
         override fun unbindView(item: ImageMemeItem) {
+            Glide.with(itemView).clear(imageMemeContent)
         }
 
     }

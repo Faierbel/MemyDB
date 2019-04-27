@@ -1,16 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_marginBottom="5dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true">
 
-    <ImageView
-        android:id="@+id/imageMemeContent"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="20dp"
-        tools:ignore="ContentDescription"
-        tools:src="@tools:sample/avatars" />
-</LinearLayout>
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageMemeContent"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:scaleType="fitXY"
+            tools:ignore="ContentDescription"
+            tools:src="@tools:sample/avatars" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp">
+
+            <ImageView
+                android:id="@+id/imageMemePointImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginEnd="7dp"
+                android:layout_marginRight="7dp"
+                app:srcCompat="@drawable/ic_all_point_black"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/imageMemePointText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/imageMemePointImage"
+                android:layout_toRightOf="@id/imageMemePointImage"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="20sp"
+                tools:text="300" />
+
+            <ImageView
+                android:id="@+id/imageMemeCommentImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginEnd="7dp"
+                android:layout_marginRight="7dp"
+                android:layout_toEndOf="@id/imageMemePointText"
+                android:layout_toRightOf="@id/imageMemePointText"
+                app:srcCompat="@drawable/ic_all_comment_black"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/imageMemeCommentText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/imageMemeCommentImage"
+                android:layout_toRightOf="@id/imageMemeCommentImage"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="20sp"
+                tools:text="300" />
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

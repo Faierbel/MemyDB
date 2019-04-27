@@ -48,7 +48,7 @@ class DemotywatoryFragment : BaseFragment() {
             layoutManager = LinearLayoutManager(context)
             adapter = demotAdapter
             layoutManager?.let {
-                addOnScrollListener(object : EndlessRecyclerOnScrollListener(it, 4) {
+                addOnScrollListener(object : EndlessRecyclerOnScrollListener(it, 15) {
                     override fun onLoadMore(currentPage: Int) {
                         demotViewModel.downloadPage(currentPage)
                     }
