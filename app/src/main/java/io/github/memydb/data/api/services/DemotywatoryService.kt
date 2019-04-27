@@ -10,9 +10,6 @@ import javax.inject.Singleton
 @Singleton
 interface DemotywatoryService {
 
-    @GET("/demotywatory")
-    fun getPage(): RefreshLiveData<ApiResponse<Page>>
-
     @GET("/demotywatory/page/{id}")
     fun getPage(@Path("id") id: Int): RefreshLiveData<ApiResponse<Page>>
 }
