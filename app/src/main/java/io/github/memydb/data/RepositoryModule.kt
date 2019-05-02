@@ -5,10 +5,7 @@ import dagger.Module
 import dagger.Provides
 import io.github.memydb.data.api.ContentTypeAdapter
 import io.github.memydb.data.api.LiveDataCallAdapterFactory
-import io.github.memydb.data.api.services.DemotywatoryService
-import io.github.memydb.data.api.services.JbzdService
-import io.github.memydb.data.api.services.KwejkService
-import io.github.memydb.data.api.services.NinegagService
+import io.github.memydb.data.api.services.*
 import io.github.memydb.data.pojos.contents.Content
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -61,5 +58,11 @@ internal class RepositoryModule {
     @Provides
     fun provideNinegagService(retrofit: Retrofit): NinegagService {
         return retrofit.create(NinegagService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideNinegagnsfw(retrofit: Retrofit): NinegagnsfwService {
+        return retrofit.create(NinegagnsfwService::class.java)
     }
 }

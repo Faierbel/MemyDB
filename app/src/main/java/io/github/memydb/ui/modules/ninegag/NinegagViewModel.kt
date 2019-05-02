@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 class NinegagViewModel @Inject constructor(private val ninegagRepository: NinegagRepository) : ViewModel() {
 
-    val ninegagyMemes: LiveData<List<Meme>>
+    val ninegagMemes: LiveData<List<Meme>>
         get() = mutableNinegagMemes
 
     private val memesList = mutableListOf<Meme>()

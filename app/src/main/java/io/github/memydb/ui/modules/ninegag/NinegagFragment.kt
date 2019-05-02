@@ -44,7 +44,7 @@ class NinegagFragment : BaseFragment() {
 
     private fun initView() {
         ninegagViewModel.initialize()
-        ninegagViewModel.ninegagyMemes.observe(viewLifecycleOwner, Observer {
+        ninegagViewModel.ninegagMemes.observe(viewLifecycleOwner, Observer {
             memesAdapter.setNewList(it)
         })
 

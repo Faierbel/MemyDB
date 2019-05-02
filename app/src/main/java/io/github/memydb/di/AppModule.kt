@@ -8,6 +8,7 @@ import io.github.memydb.ui.modules.jbzd.JbzdFragment
 import io.github.memydb.ui.modules.kwejk.KwejkFragment
 import io.github.memydb.ui.modules.main.MainActivity
 import io.github.memydb.ui.modules.ninegag.NinegagFragment
+import io.github.memydb.ui.modules.ninegagnsfw.NinegagnsfwFragment
 import io.github.memydb.ui.modules.splash.SplashActivity
 
 @Module
@@ -30,6 +31,9 @@ abstract class AppModule {
 
     @ContributesAndroidInjector
     abstract fun bindNinegagFragment(): NinegagFragment
+
+    @ContributesAndroidInjector
+    abstract fun bindNinegagnsfwFragment(): NinegagnsfwFragment
 
     @ContributesAndroidInjector
     abstract fun bindContentFragment(): ContentFragment

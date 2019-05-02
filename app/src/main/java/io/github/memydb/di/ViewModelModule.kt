@@ -11,6 +11,7 @@ import io.github.memydb.ui.modules.demotywatory.DemotywatoryViewModel
 import io.github.memydb.ui.modules.jbzd.JbzdViewModel
 import io.github.memydb.ui.modules.kwejk.KwejkViewModel
 import io.github.memydb.ui.modules.ninegag.NinegagViewModel
+import io.github.memydb.ui.modules.ninegagnsfw.NinegagnsfwViewModel
 
 @Module
 internal abstract class ViewModelModule {
@@ -37,5 +38,10 @@ internal abstract class ViewModelModule {
     @IntoMap
     @ClassKey(NinegagViewModel::class)
     abstract fun bindNinegagViewModel(viewModel: NinegagViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ClassKey(NinegagnsfwViewModel::class)
+    abstract fun bindNinegagnsfwViewModel(viewModel: NinegagnsfwViewModel): ViewModel
 
 }
