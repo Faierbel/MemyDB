@@ -10,13 +10,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.items.AbstractItem
-import com.mikepenz.fastadapter.scroll.EndlessRecyclerOnScrollListener
 import io.github.memydb.R
-import io.github.memydb.data.api.ApiResponse
 import io.github.memydb.ui.base.BaseActivity
 import io.github.memydb.ui.base.BaseFragment
 import io.github.memydb.ui.base.ViewModelFactory
 import io.github.memydb.ui.base.items.ImageMemeItem
+import io.github.memydb.utils.setEndlessOnScrollListener
 import kotlinx.android.synthetic.main.fragment_demotywatory.*
 import javax.inject.Inject
 
@@ -29,12 +28,17 @@ class DemotywatoryFragment : BaseFragment() {
 
     private lateinit var demotAdapter: FastAdapter<AbstractItem<*>>
 
+    private var savedView: View? = null
+
     companion object {
         fun newInstance() = DemotywatoryFragment()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_demotywatory, container, false)
+        if (savedView == null) {
+            savedView = inflater.inflate(R.layout.fragment_demotywatory, container, false)
+        }
+        return savedView
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -45,6 +49,11 @@ class DemotywatoryFragment : BaseFragment() {
     }
 
     private fun initView() {
+        demotViewModel.initialize()
+        demotViewModel.demotywatoryMemes.observe(viewLifecycleOwner, Observer {
+            memesAdapter.setNewList(it)
+        })
+
         demotAdapter = FastAdapter.with(memesAdapter)
         demotAdapter.onClickListener = { _, _, item, _ ->
             if (item is ImageMemeItem) {
@@ -53,26 +62,12 @@ class DemotywatoryFragment : BaseFragment() {
             }
             true
         }
+
         demotRecyler.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = demotAdapter
-            layoutManager?.let {
-                addOnScrollListener(object : EndlessRecyclerOnScrollListener(it, 15) {
-                    override fun onLoadMore(currentPage: Int) {
-                        demotViewModel.downloadPage(currentPage)
-                    }
-                }.apply { resetPageCount(1) })
-            }
+            setEndlessOnScrollListener(15) { demotViewModel.downloadNextPage() }
+            itemAnimator = null
         }
-
-        demotViewModel.demotywatoryPage.observe(this, Observer {
-            if (it is ApiResponse.SuccessApiResponse) {
-                memesAdapter.add(it.value.memes)
-
-            } else if (it is ApiResponse.ErrorApiResponse) {
-                showMessage(it.error.localizedMessage)
-            }
-        })
-
     }
 }
