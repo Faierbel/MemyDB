@@ -65,4 +65,10 @@ internal class RepositoryModule {
     fun provideNinegagnsfw(retrofit: Retrofit): NinegagnsfwService {
         return retrofit.create(NinegagnsfwService::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun provideMistrzowieService(retrofit: Retrofit): MistrzowieService {
+        return retrofit.create(MistrzowieService::class.java)
+    }
 }
