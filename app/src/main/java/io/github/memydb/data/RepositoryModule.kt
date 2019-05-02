@@ -6,6 +6,7 @@ import dagger.Provides
 import io.github.memydb.data.api.ContentTypeAdapter
 import io.github.memydb.data.api.LiveDataCallAdapterFactory
 import io.github.memydb.data.api.services.DemotywatoryService
+import io.github.memydb.data.api.services.KwejkService
 import io.github.memydb.data.pojos.contents.Content
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -40,5 +41,11 @@ internal class RepositoryModule {
     @Provides
     fun provideDemotywatoryService(retrofit: Retrofit): DemotywatoryService {
         return retrofit.create(DemotywatoryService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideKwejkService(retrofit: Retrofit): KwejkService {
+        return retrofit.create(KwejkService::class.java)
     }
 }

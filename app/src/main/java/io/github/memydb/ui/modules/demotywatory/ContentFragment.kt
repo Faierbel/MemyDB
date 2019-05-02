@@ -26,6 +26,5 @@ class ContentFragment : BaseFragment() {
         Glide.with(this)
             .load(((argument.meme as Meme).content as ImageContent).url)
             .into(contentImage)
-
     }
 }

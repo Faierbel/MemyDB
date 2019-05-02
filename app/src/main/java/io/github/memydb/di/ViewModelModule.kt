@@ -8,6 +8,7 @@ import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
 import io.github.memydb.ui.base.ViewModelFactory
 import io.github.memydb.ui.modules.demotywatory.DemotywatoryViewModel
+import io.github.memydb.ui.modules.kwejk.KwejkViewModel
 
 @Module
 internal abstract class ViewModelModule {
@@ -19,5 +20,10 @@ internal abstract class ViewModelModule {
     @IntoMap
     @ClassKey(DemotywatoryViewModel::class)
     abstract fun bindDemotywatoryViewModel(viewModel: DemotywatoryViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ClassKey(KwejkViewModel::class)
+    abstract fun bindKwejkViewModel(viewModel: KwejkViewModel): ViewModel
 
 }
