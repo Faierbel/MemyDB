@@ -7,10 +7,6 @@ import io.github.memydb.ui.base.BaseActivity
 
 class AnonimoweFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = AnonimoweFragment()
-    }
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         (activity as? BaseActivity)?.supportActionBar?.title = getString(R.string.anonimowe_title)

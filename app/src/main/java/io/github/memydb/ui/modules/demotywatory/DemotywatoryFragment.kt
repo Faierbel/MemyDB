@@ -30,10 +30,6 @@ class DemotywatoryFragment : BaseFragment() {
 
     private var savedView: View? = null
 
-    companion object {
-        fun newInstance() = DemotywatoryFragment()
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if (savedView == null) {
             savedView = inflater.inflate(R.layout.fragment_demotywatory, container, false)
