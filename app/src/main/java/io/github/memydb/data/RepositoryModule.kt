@@ -8,6 +8,7 @@ import io.github.memydb.data.api.LiveDataCallAdapterFactory
 import io.github.memydb.data.api.services.DemotywatoryService
 import io.github.memydb.data.api.services.JbzdService
 import io.github.memydb.data.api.services.KwejkService
+import io.github.memydb.data.api.services.NinegagService
 import io.github.memydb.data.pojos.contents.Content
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -54,5 +55,11 @@ internal class RepositoryModule {
     @Provides
     fun provideJbzdService(retrofit: Retrofit): JbzdService {
         return retrofit.create(JbzdService::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideNinegagService(retrofit: Retrofit): NinegagService {
+        return retrofit.create(NinegagService::class.java)
     }
 }

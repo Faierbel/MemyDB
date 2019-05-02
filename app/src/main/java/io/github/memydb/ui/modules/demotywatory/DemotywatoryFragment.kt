@@ -59,7 +59,7 @@ class DemotywatoryFragment : BaseFragment() {
             true
         }
 
-        demotRecyler.apply {
+        demotRecycler.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = demotAdapter
             setEndlessOnScrollListener(15) { demotViewModel.downloadNextPage() }

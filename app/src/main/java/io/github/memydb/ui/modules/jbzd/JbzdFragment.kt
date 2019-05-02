@@ -50,7 +50,7 @@ class JbzdFragment : BaseFragment() {
 
         jbzdAdapter = FastAdapter.with(memesAdapter)
 
-        jbzdRecyler.apply {
+        jbzdRecycler.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = jbzdAdapter
             setEndlessOnScrollListener(15) { jbzdViewModel.downloadNextPage() }

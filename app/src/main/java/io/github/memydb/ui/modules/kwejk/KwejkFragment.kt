@@ -54,7 +54,7 @@ class KwejkFragment : BaseFragment() {
 
         kwejkAdapter = FastAdapter.with(memesAdapter)
 
-        kwejkRecyler.apply {
+        kwejkRecycler.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = kwejkAdapter
             setEndlessOnScrollListener(15) { kwejkViewModel.downloadNextPage() }
