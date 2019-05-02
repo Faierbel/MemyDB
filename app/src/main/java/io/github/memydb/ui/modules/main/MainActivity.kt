@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import com.mikepenz.materialdrawer.Drawer
 import com.mikepenz.materialdrawer.DrawerBuilder
@@ -25,12 +26,14 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(mainToolbar)
-        initView()
+        initView(savedInstanceState)
     }
 
-    private fun initView() {
+    private fun initView(savedInstanceState: Bundle?) {
         drawer = DrawerBuilder().withActivity(this)
             .withToolbar(mainToolbar)
+            .withHasStableIds(true)
+            .withSavedInstance(savedInstanceState)
             .withHasStableIds(true)
             .addDrawerItems(
                 PrimaryDrawerItem().withName(R.string.anonimowe_title).withIdentifier(1),
@@ -44,15 +47,16 @@ class MainActivity : BaseActivity() {
             ).withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
                 override fun onItemClick(view: View?, position: Int, drawerItem: IDrawerItem<*>): Boolean {
                     val navigation = findNavController(R.id.mainFragmentContainer)
+                    val navOptions = NavOptions.Builder().setPopUpTo(R.id.nav_graph, true).build()
                     when (drawerItem.identifier) {
-                        1L -> navigation.navigate(R.id.anonimoweFragment)
-                        2L -> navigation.navigate(R.id.demotywatoryFragment)
-                        3L -> navigation.navigate(R.id.jbzdFragment)
-                        4L -> navigation.navigate(R.id.kwejkFragment)
-                        5L -> navigation.navigate(R.id.mistrzowieFragment)
-                        6L -> navigation.navigate(R.id.ninegagFragment)
-                        7L -> navigation.navigate(R.id.ninegagnsfwFragment)
-                        8L -> navigation.navigate(R.id.thecodingloveFragment)
+                        1L -> navigation.navigate(R.id.anonimoweFragment, null, navOptions)
+                        2L -> navigation.navigate(R.id.demotywatoryFragment, null, navOptions)
+                        3L -> navigation.navigate(R.id.jbzdFragment, null, navOptions)
+                        4L -> navigation.navigate(R.id.kwejkFragment, null, navOptions)
+                        5L -> navigation.navigate(R.id.mistrzowieFragment, null, navOptions)
+                        6L -> navigation.navigate(R.id.ninegagFragment, null, navOptions)
+                        7L -> navigation.navigate(R.id.ninegagnsfwFragment, null, navOptions)
+                        8L -> navigation.navigate(R.id.thecodingloveFragment, null, navOptions)
                         else -> throw IllegalArgumentException()
                     }
                     drawer.closeDrawer()
@@ -60,5 +64,10 @@ class MainActivity : BaseActivity() {
                 }
             })
             .build()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        drawer.saveInstanceState(outState)
     }
 }
