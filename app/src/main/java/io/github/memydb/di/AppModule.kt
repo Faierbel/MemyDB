@@ -2,6 +2,7 @@ package io.github.memydb.di
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
+import io.github.memydb.ui.modules.anonimowe.AnonimoweFragment
 import io.github.memydb.ui.modules.demotywatory.ContentFragment
 import io.github.memydb.ui.modules.demotywatory.DemotywatoryFragment
 import io.github.memydb.ui.modules.jbzd.JbzdFragment
@@ -39,6 +40,9 @@ abstract class AppModule {
 
     @ContributesAndroidInjector
     abstract fun bindMistrzowieFragment(): MistrzowieFragment
+
+    @ContributesAndroidInjector
+    abstract fun bindAnonimoweFragment(): AnonimoweFragment
 
     @ContributesAndroidInjector
     abstract fun bindContentFragment(): ContentFragment

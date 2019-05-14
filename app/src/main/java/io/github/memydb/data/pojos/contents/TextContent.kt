@@ -1,3 +1,3 @@
 package io.github.memydb.data.pojos.contents
 
-data class TextContent(val content: String) : Content()
+data class TextContent(val url: String) : Content()

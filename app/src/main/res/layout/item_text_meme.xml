@@ -13,16 +13,16 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageMemeContent"
+        <TextView
+            android:id="@+id/textMemeContent"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:scaleType="fitXY"
+            android:maxHeight="500dp"
             tools:ignore="ContentDescription"
-            tools:src="@tools:sample/avatars" />
+            tools:text="@tools:sample/lorem/random" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -31,7 +31,7 @@
             android:layout_marginBottom="20dp">
 
             <ImageView
-                android:id="@+id/imageMemePointImage"
+                android:id="@+id/textMemePointImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -41,30 +41,30 @@
                 tools:ignore="ContentDescription" />
 
             <TextView
-                android:id="@+id/imageMemePointText"
+                android:id="@+id/textMemePointText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/imageMemePointImage"
+                android:layout_toEndOf="@id/textMemePointImage"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="20sp"
                 tools:text="300" />
 
             <ImageView
-                android:id="@+id/imageMemeCommentImage"
+                android:id="@+id/textMemeCommentImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="7dp"
-                android:layout_toEndOf="@id/imageMemePointText"
+                android:layout_toEndOf="@id/textMemePointText"
                 app:srcCompat="@drawable/ic_all_comment_black"
                 tools:ignore="ContentDescription" />
 
             <TextView
-                android:id="@+id/imageMemeCommentText"
+                android:id="@+id/textMemeCommentText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/imageMemeCommentImage"
+                android:layout_toEndOf="@id/textMemeCommentImage"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="20sp"
                 tools:text="300" />

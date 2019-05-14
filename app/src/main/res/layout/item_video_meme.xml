@@ -13,16 +13,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageMemeContent"
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/videoMemeContent"
             android:layout_width="match_parent"
             android:layout_height="500dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:scaleType="fitXY"
-            tools:ignore="ContentDescription"
-            tools:src="@tools:sample/avatars" />
+            android:layout_marginRight="5dp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -31,7 +28,7 @@
             android:layout_marginBottom="20dp">
 
             <ImageView
-                android:id="@+id/imageMemePointImage"
+                android:id="@+id/videoMemePointImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -41,30 +38,30 @@
                 tools:ignore="ContentDescription" />
 
             <TextView
-                android:id="@+id/imageMemePointText"
+                android:id="@+id/videoMemePointText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/imageMemePointImage"
+                android:layout_toEndOf="@id/videoMemePointImage"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="20sp"
                 tools:text="300" />
 
             <ImageView
-                android:id="@+id/imageMemeCommentImage"
+                android:id="@+id/videoMemeCommentImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="7dp"
-                android:layout_toEndOf="@id/imageMemePointText"
+                android:layout_toEndOf="@id/videoMemePointText"
                 app:srcCompat="@drawable/ic_all_comment_black"
                 tools:ignore="ContentDescription" />
 
             <TextView
-                android:id="@+id/imageMemeCommentText"
+                android:id="@+id/videoMemeCommentText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/imageMemeCommentImage"
+                android:layout_toEndOf="@id/videoMemeCommentImage"
                 android:textColor="?android:textColorPrimary"
                 android:textSize="20sp"
                 tools:text="300" />
