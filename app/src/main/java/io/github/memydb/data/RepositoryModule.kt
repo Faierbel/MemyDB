@@ -77,4 +77,10 @@ internal class RepositoryModule {
     fun provideAnonimoweService(retrofit: Retrofit): AnonimoweService {
         return retrofit.create(AnonimoweService::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun provideCodingLoveService(retrofit: Retrofit): CodingloveService {
+        return retrofit.create(CodingloveService::class.java)
+    }
 }

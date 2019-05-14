@@ -8,6 +8,7 @@ import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
 import io.github.memydb.ui.base.ViewModelFactory
 import io.github.memydb.ui.modules.anonimowe.AnonimoweViewModel
+import io.github.memydb.ui.modules.codinglove.CodingloveViewModel
 import io.github.memydb.ui.modules.demotywatory.DemotywatoryViewModel
 import io.github.memydb.ui.modules.jbzd.JbzdViewModel
 import io.github.memydb.ui.modules.kwejk.KwejkViewModel
@@ -56,4 +57,9 @@ internal abstract class ViewModelModule {
     @IntoMap
     @ClassKey(AnonimoweViewModel::class)
     abstract fun bindAnonimoweViewModel(viewModel: AnonimoweViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ClassKey(CodingloveViewModel::class)
+    abstract fun bindCodingloveViewModel(viewModel: CodingloveViewModel): ViewModel
 }

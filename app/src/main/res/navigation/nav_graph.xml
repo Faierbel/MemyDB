@@ -38,7 +38,7 @@
         android:label="NinegagnsfwFragment" />
     <fragment
         android:id="@+id/thecodingloveFragment"
-        android:name="io.github.memydb.ui.modules.thecodinglove.ThecodingloveFragment"
+        android:name="io.github.memydb.ui.modules.codinglove.CodingloveFragment"
         android:label="ThecodingloveFragment" />
     <fragment
         android:id="@+id/contentFragment"
