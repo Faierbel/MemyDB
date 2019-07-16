@@ -15,11 +15,11 @@ Android application aggregating several pages with memes
 
 ## Built With
 
-* [MemesAPI](https://github.com/Faierbel/memes-api) - Used api 
-* [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - The lifecycle-aware observable data holder class
-* [Retrofit](https://square.github.io/retrofit/) - Type-safe HTTP client for Android and Java
-* [Navigation Component](https://developer.android.com/guide/navigation) - Helps implement navigation in application
-* [MVVM](https://developer.android.com/topic/libraries/architecture/viewmodel) - Design pattern
+* [MemesAPI](https://github.com/Faierbel/memes-api)
+* [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
+* [Retrofit](https://square.github.io/retrofit/)
+* [Navigation Component](https://developer.android.com/guide/navigation)
+* [MVVM](https://developer.android.com/topic/libraries/architecture/viewmodel)
 
 ## Contributing
 
