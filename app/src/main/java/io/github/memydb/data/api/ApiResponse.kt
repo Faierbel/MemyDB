@@ -10,7 +10,7 @@ sealed class ApiResponse<T> {
         fun <T> create(error: Throwable) = ErrorApiResponse<T>(error)
 
         fun <T> create(response: Response<T>): ApiResponse<T> {
-            return if (response.isSuccessful) {
+            return ((if (response.isSuccessful) {
                 response.body().let {
                     if (it == null || response.code() == 204) EmptyApiResponse<T>()
                     else SuccessApiResponse(it)
@@ -21,7 +21,7 @@ sealed class ApiResponse<T> {
                     else it
                 }
                 ErrorApiResponse(IOException(message))
-            }
+            }) as ApiResponse<T>)
         }
     }
 

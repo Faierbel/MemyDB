@@ -1,9 +1,6 @@
 package io.github.memydb.ui.modules.demotywatory
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
@@ -19,7 +16,7 @@ import io.github.memydb.utils.setEndlessOnScrollListener
 import kotlinx.android.synthetic.main.fragment_demotywatory.*
 import javax.inject.Inject
 
-class DemotywatoryFragment : BaseFragment() {
+class DemotywatoryFragment : BaseFragment(R.layout.fragment_demotywatory) {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -27,15 +24,6 @@ class DemotywatoryFragment : BaseFragment() {
     private lateinit var demotViewModel: DemotywatoryViewModel
 
     private lateinit var demotAdapter: FastAdapter<AbstractItem<*>>
-
-    private var savedView: View? = null
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        if (savedView == null) {
-            savedView = inflater.inflate(R.layout.fragment_demotywatory, container, false)
-        }
-        return savedView
-    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

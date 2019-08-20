@@ -1,9 +1,6 @@
 package io.github.memydb.ui.modules.ninegagnsfw
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +14,7 @@ import io.github.memydb.utils.setEndlessOnScrollListener
 import kotlinx.android.synthetic.main.ninegagnsfw_fragment.*
 import javax.inject.Inject
 
-class NinegagnsfwFragment : BaseFragment() {
+class NinegagnsfwFragment : BaseFragment(R.layout.ninegagnsfw_fragment) {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -25,15 +22,6 @@ class NinegagnsfwFragment : BaseFragment() {
     private lateinit var ninegagnsfwViewModel: NinegagnsfwViewModel
 
     private lateinit var ninegagnsfwAdapter: FastAdapter<AbstractItem<*>>
-
-    private var savedView: View? = null
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        if (savedView == null) {
-            savedView = inflater.inflate(R.layout.ninegagnsfw_fragment, container, false)
-        }
-        return savedView
-    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

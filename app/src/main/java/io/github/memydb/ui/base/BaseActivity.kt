@@ -1,6 +1,22 @@
 package io.github.memydb.ui.base
 
-import dagger.android.support.DaggerAppCompatActivity
+import android.os.Bundle
+import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
+import dagger.android.AndroidInjection
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
+import javax.inject.Inject
 
-abstract class BaseActivity : DaggerAppCompatActivity() {
+abstract class BaseActivity(@LayoutRes layout: Int) : AppCompatActivity(layout), HasAndroidInjector {
+
+    @Inject
+    lateinit var androidInjector: DispatchingAndroidInjector<Any>
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
+        super.onCreate(savedInstanceState)
+    }
+
+    override fun androidInjector() = androidInjector
 }

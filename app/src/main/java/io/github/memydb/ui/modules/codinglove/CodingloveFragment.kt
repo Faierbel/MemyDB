@@ -1,9 +1,6 @@
 package io.github.memydb.ui.modules.codinglove
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +14,7 @@ import io.github.memydb.utils.setEndlessOnScrollListener
 import kotlinx.android.synthetic.main.fragment_codinglove.*
 import javax.inject.Inject
 
-class CodingloveFragment : BaseFragment() {
+class CodingloveFragment : BaseFragment(R.layout.fragment_codinglove) {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -25,15 +22,6 @@ class CodingloveFragment : BaseFragment() {
     private lateinit var codingloveViewModel: CodingloveViewModel
 
     private lateinit var codingloveAdapter: FastAdapter<AbstractItem<*>>
-
-    private var savedView: View? = null
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        if (savedView == null) {
-            savedView = inflater.inflate(R.layout.fragment_codinglove, container, false)
-        }
-        return savedView
-    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

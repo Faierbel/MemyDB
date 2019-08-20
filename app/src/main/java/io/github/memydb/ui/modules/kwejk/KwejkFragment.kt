@@ -1,9 +1,6 @@
 package io.github.memydb.ui.modules.kwejk
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +14,7 @@ import io.github.memydb.utils.setEndlessOnScrollListener
 import kotlinx.android.synthetic.main.fragment_kwejk.*
 import javax.inject.Inject
 
-class KwejkFragment : BaseFragment() {
+class KwejkFragment : BaseFragment(R.layout.fragment_kwejk) {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -25,19 +22,6 @@ class KwejkFragment : BaseFragment() {
     private lateinit var kwejkViewModel: KwejkViewModel
 
     private lateinit var kwejkAdapter: FastAdapter<AbstractItem<*>>
-
-    private var savedView: View? = null
-
-    companion object {
-        fun newInstance() = KwejkFragment()
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        if (savedView == null) {
-            savedView = inflater.inflate(R.layout.fragment_kwejk, container, false)
-        }
-        return savedView
-    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

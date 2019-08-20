@@ -4,7 +4,7 @@ import android.os.Bundle
 import io.github.memydb.ui.base.BaseActivity
 import io.github.memydb.ui.modules.main.MainActivity
 
-class SplashActivity : BaseActivity() {
+class SplashActivity : BaseActivity(0) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

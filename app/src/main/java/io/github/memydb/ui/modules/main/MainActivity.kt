@@ -14,7 +14,7 @@ import io.github.memydb.R
 import io.github.memydb.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity(R.layout.activity_main) {
 
     private lateinit var drawer: Drawer
 
@@ -24,7 +24,6 @@ class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         setSupportActionBar(mainToolbar)
         initView(savedInstanceState)
     }
