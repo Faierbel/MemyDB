@@ -1,8 +1,8 @@
 package io.github.memydb.ui.modules.kwejk
 
 import android.os.Bundle
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.items.AbstractItem
@@ -19,14 +19,13 @@ class KwejkFragment : BaseFragment(R.layout.fragment_kwejk) {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    private lateinit var kwejkViewModel: KwejkViewModel
+    private val kwejkViewModel: KwejkViewModel by viewModels { viewModelFactory }
 
     private lateinit var kwejkAdapter: FastAdapter<AbstractItem<*>>
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         (activity as? BaseActivity)?.supportActionBar?.title = getString(R.string.kwejk_title)
-        kwejkViewModel = ViewModelProviders.of(this, viewModelFactory).get(KwejkViewModel::class.java)
         initView()
     }
 

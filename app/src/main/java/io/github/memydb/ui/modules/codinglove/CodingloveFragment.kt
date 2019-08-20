@@ -1,8 +1,8 @@
 package io.github.memydb.ui.modules.codinglove
 
 import android.os.Bundle
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.items.AbstractItem
@@ -19,14 +19,13 @@ class CodingloveFragment : BaseFragment(R.layout.fragment_codinglove) {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    private lateinit var codingloveViewModel: CodingloveViewModel
+    private val codingloveViewModel: CodingloveViewModel by viewModels { viewModelFactory }
 
     private lateinit var codingloveAdapter: FastAdapter<AbstractItem<*>>
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         (activity as? BaseActivity)?.supportActionBar?.title = getString(R.string.thecodinglove_title)
-        codingloveViewModel = ViewModelProviders.of(this, viewModelFactory).get(CodingloveViewModel::class.java)
         initView()
     }
 

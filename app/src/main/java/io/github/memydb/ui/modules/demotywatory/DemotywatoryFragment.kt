@@ -1,8 +1,8 @@
 package io.github.memydb.ui.modules.demotywatory
 
 import android.os.Bundle
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mikepenz.fastadapter.FastAdapter
@@ -21,14 +21,13 @@ class DemotywatoryFragment : BaseFragment(R.layout.fragment_demotywatory) {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    private lateinit var demotViewModel: DemotywatoryViewModel
+    private val demotViewModel: DemotywatoryViewModel by viewModels { viewModelFactory }
 
     private lateinit var demotAdapter: FastAdapter<AbstractItem<*>>
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         (activity as? BaseActivity)?.supportActionBar?.title = getString(R.string.demotywatory_title)
-        demotViewModel = ViewModelProviders.of(this, viewModelFactory).get(DemotywatoryViewModel::class.java)
         initView()
     }
 

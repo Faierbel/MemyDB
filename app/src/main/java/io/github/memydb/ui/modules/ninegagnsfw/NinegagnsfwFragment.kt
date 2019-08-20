@@ -1,8 +1,8 @@
 package io.github.memydb.ui.modules.ninegagnsfw
 
 import android.os.Bundle
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.items.AbstractItem
@@ -19,14 +19,13 @@ class NinegagnsfwFragment : BaseFragment(R.layout.ninegagnsfw_fragment) {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    private lateinit var ninegagnsfwViewModel: NinegagnsfwViewModel
+    private val ninegagnsfwViewModel: NinegagnsfwViewModel by viewModels { viewModelFactory }
 
     private lateinit var ninegagnsfwAdapter: FastAdapter<AbstractItem<*>>
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         (activity as? BaseActivity)?.supportActionBar?.title = getString(R.string.ninegagnsfw_title)
-        ninegagnsfwViewModel = ViewModelProviders.of(this, viewModelFactory).get(NinegagnsfwViewModel::class.java)
         initView()
     }
 

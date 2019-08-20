@@ -1,8 +1,8 @@
 package io.github.memydb.ui.modules.jbzd
 
 import android.os.Bundle
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.items.AbstractItem
@@ -19,14 +19,13 @@ class JbzdFragment : BaseFragment(R.layout.fragment_jbzd) {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    private lateinit var jbzdViewModel: JbzdViewModel
+    private val jbzdViewModel: JbzdViewModel by viewModels { viewModelFactory }
 
     private lateinit var jbzdAdapter: FastAdapter<AbstractItem<*>>
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         (activity as? BaseActivity)?.supportActionBar?.title = getString(R.string.jbzd_title)
-        jbzdViewModel = ViewModelProviders.of(this, viewModelFactory).get(JbzdViewModel::class.java)
         initView()
     }
 

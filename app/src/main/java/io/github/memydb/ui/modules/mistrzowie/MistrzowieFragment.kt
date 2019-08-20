@@ -1,8 +1,8 @@
 package io.github.memydb.ui.modules.mistrzowie
 
 import android.os.Bundle
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.items.AbstractItem
@@ -19,14 +19,13 @@ class MistrzowieFragment : BaseFragment(R.layout.fragment_mistrzowie) {
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    private lateinit var mistrzowieViewModel: MistrzowieViewModel
+    private val mistrzowieViewModel: MistrzowieViewModel by viewModels { viewModelFactory }
 
     private lateinit var mistrzowieAdapter: FastAdapter<AbstractItem<*>>
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         (activity as? BaseActivity)?.supportActionBar?.title = getString(R.string.mistrzowie_title)
-        mistrzowieViewModel = ViewModelProviders.of(this, viewModelFactory).get(MistrzowieViewModel::class.java)
         initView()
     }
 
