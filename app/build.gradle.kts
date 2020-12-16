@@ -76,7 +76,7 @@ dependencies {
     implementation("com.google.android.exoplayer:exoplayer:2.10.4")
 
     implementation("com.google.code.gson:gson:2.8.5")
-    implementation("com.squareup.okhttp3:logging-interceptor:3.14.1")
+    implementation("com.squareup.okhttp3:logging-interceptor:3.14.9")
 
     implementation("com.google.dagger:dagger-android-support:2.24")
     kapt("com.google.dagger:dagger-compiler:2.24")
