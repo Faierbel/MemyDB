@@ -65,7 +65,7 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.2.0-alpha01")
 
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0-alpha03")
-    implementation("androidx.lifecycle:lifecycle-common-java8:2.2.0-alpha03")
+    implementation("androidx.lifecycle:lifecycle-common-java8:2.3.0-rc01")
 
     implementation("com.mikepenz:materialdrawer:7.0.0-rc05")
     implementation("com.mikepenz:fastadapter:4.0.1")
