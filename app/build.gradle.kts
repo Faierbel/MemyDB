@@ -67,7 +67,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0-alpha03")
     implementation("androidx.lifecycle:lifecycle-common-java8:2.2.0-alpha03")
 
-    implementation("com.mikepenz:materialdrawer:7.0.0-rc05")
+    implementation("com.mikepenz:materialdrawer:8.3.0")
     implementation("com.mikepenz:fastadapter:4.0.1")
     implementation("com.mikepenz:fastadapter-extensions-scroll:4.1.0-b01")
 
