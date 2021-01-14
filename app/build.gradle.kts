@@ -53,7 +53,7 @@ dependencies {
 
     implementation("androidx.core:core-ktx:1.2.0-alpha03")
     implementation("androidx.appcompat:appcompat:1.1.0-rc01")
-    implementation("androidx.appcompat:appcompat-resources:1.1.0-rc01")
+    implementation("androidx.appcompat:appcompat-resources:1.3.0-beta01")
     implementation("androidx.activity:activity-ktx:1.1.0-alpha02")
     implementation("androidx.fragment:fragment-ktx:1.2.0-alpha02")
     implementation("androidx.recyclerview:recyclerview:1.1.0-beta03")
