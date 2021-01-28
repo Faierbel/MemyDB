@@ -62,7 +62,7 @@ dependencies {
     implementation("com.google.android.material:material:1.1.0-alpha09")
 
     implementation("androidx.navigation:navigation-fragment-ktx:2.2.0-alpha01")
-    implementation("androidx.navigation:navigation-ui-ktx:2.2.0-alpha01")
+    implementation("androidx.navigation:navigation-ui-ktx:2.3.3")
 
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0-alpha03")
     implementation("androidx.lifecycle:lifecycle-common-java8:2.2.0-alpha03")
