@@ -78,7 +78,7 @@ dependencies {
     implementation("com.google.code.gson:gson:2.8.5")
     implementation("com.squareup.okhttp3:logging-interceptor:3.14.1")
 
-    implementation("com.google.dagger:dagger-android-support:2.24")
+    implementation("com.google.dagger:dagger-android-support:2.32")
     kapt("com.google.dagger:dagger-compiler:2.24")
     kapt("com.google.dagger:dagger-android-processor:2.24")
 
